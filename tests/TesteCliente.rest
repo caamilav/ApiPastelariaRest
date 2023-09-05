@@ -12,7 +12,8 @@ content-type: application/json
 "nome" : "Camila Candido",
 "cpf" : "01923874656",
 "telefone" : "49985956233",
-"email" : "camila@gmail.com"
+"compra_fiado" : "0",
+"senha": "password"
 }
 
 ### Verbo PUT – atualiza
@@ -23,7 +24,6 @@ content-type: application/json
 "nome" : "Camila V. Candido",
 "cpf" : "01923874656",
 "telefone" : "49985956233",
-"email" : "camilacandido@gmail.com",
 }
 
 ### Verbo DELETE - excluir

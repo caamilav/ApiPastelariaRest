@@ -10,7 +10,9 @@ content-type: application/json
 
 {
 "nome" : "Tenis Vans",
-"valor" : 300
+"descricao": "desc",
+"foto": "01010111",
+"valor_unitario" : 300
 }
 
 ### Verbo PUT – atualiza
@@ -19,7 +21,7 @@ content-type: application/json
 
 {
 "nome" : "Tenis Vans Old School",
-"valor": 350
+"valor_unitario": 350
 }
 
 ### Verbo DELETE - excluir

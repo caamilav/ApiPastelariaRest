@@ -13,11 +13,11 @@ def get_produto(id: int):
 
 @router.post("/produto/", tags=["Produto"])
 def post_produto(p: Produto):
-    return {"msg": "post executado", "nome": p.nome, "valor": p.valor }, 200
+    return {"msg": "post executado", "nome": p.nome, "descricao": p.descricao, "foto": p.foto, "valor_unitario": p.valor_unitario }, 200
 
 @router.put("/produto/{id}", tags=["Produto"])
 def put_produto(id: int, p: Produto):
-    return {"msg": "put executado", "id": id, "nome": p.nome, "valor": p.valor}, 201
+    return {"msg": "put executado", "id": id, "nome": p.nome, "valor_unitario": p.valor_unitario}, 201
 
 @router.delete("/produto/{id}", tags=["Produto"])
 def delete_produto(id: int):
