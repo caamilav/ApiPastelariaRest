@@ -1,24 +1,83 @@
 from fastapi  import APIRouter
 from domain.entities.mod_produto.Produto import Produto
+from infra.orm.mod_produto.ProdutoModel import ProdutoDB
+
+import db
 
 router = APIRouter()
 
 @router.get("/produto/", tags=["Produto"])
 def get_produto():
-    return {"msg": "get todos executado"}, 200
+    try:
+        session = db.Session()
+        dados = session.query(ProdutoDB).all()
+        
+        if len(dados) == 0:
+            return "Nenhum registro encontrado", 200
+        
+        return dados, 200
+    except Exception as ex:
+        return {"erro": str(ex)}, 400
+    finally:
+        session.close()
 
 @router.get("/produto/{id}", tags=["Produto"])
 def get_produto(id: int):
-    return {"msg": "get um executado"}, 200
+    try:
+        session = db.Session()
+        dados = session.query(ProdutoDB).filter(ProdutoDB.id_produto == id).one()
+        return dados, 200
+    except Exception as ex:
+        return {"erro": str(ex)}, 400
+    finally:
+        session.close()
+
 
 @router.post("/produto/", tags=["Produto"])
 def post_produto(p: Produto):
-    return {"msg": "post executado", "nome": p.nome, "descricao": p.descricao, "foto": p.foto, "valor_unitario": p.valor_unitario }, 200
+    try:
+        session = db.Session()
+        dados = ProdutoDB(None, p.nome, p.descricao, p.foto, p.valor_unitario)
+        session.add(dados)
+        session.commit()
+        return {"id", dados.id_produto}, 200
+    except Exception as ex:
+        session.rollback()
+        return {"erro": str(ex)}, 400
+    finally:
+        session.close()
 
 @router.put("/produto/{id}", tags=["Produto"])
 def put_produto(id: int, p: Produto):
-    return {"msg": "put executado", "id": id, "nome": p.nome, "valor_unitario": p.valor_unitario}, 201
+    try:
+        session = db.Session() 
+            
+        dados = session.query(ProdutoDB).filter(
+            ProdutoDB.id_produto == id).one()
+        dados.nome = p.nome
+        dados.descricao = p.descricao
+        dados.foto = bytes(p.foto, 'utf-8')
+        dados.valor_unitario = p.valor_unitario
+      
+        session.add(dados)
+        session.commit()       
+        return {"id": dados.id_produto}, 200   
+    except Exception as ex:
+        session.rollback()
+        return {"erro": str(ex)}, 400
+    finally:
+        session.close()
 
 @router.delete("/produto/{id}", tags=["Produto"])
 def delete_produto(id: int):
-    return {"msg": "delete executado"}, 201
+    try:
+        session = db.Session()      
+        dados = session.query(ProdutoDB).filter(ProdutoDB.id_produto == id).one()
+        session.delete(dados)
+        session.commit()          
+        return {"id": dados.id_produto}, 200      
+    except Exception as ex:
+        session.rollback()
+        return {"erro": str(ex)}, 400
+    finally: 
+        session.close()

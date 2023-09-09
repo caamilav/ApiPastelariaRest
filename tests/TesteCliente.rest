@@ -13,18 +13,22 @@ content-type: application/json
 "cpf" : "01923874656",
 "telefone" : "49985956233",
 "compra_fiado" : "0",
+"dia_fiado": "0",
 "senha": "password"
 }
 
 ### Verbo PUT – atualiza
-PUT http://localhost:8000/cliente/2 HTTP/1.1
+PUT http://localhost:8000/cliente/1 HTTP/1.1
 content-type: application/json
 
 {
 "nome" : "Camila V. Candido",
-"cpf" : "01923874656",
+"cpf" : "12345678977",
 "telefone" : "49985956233",
+"compra_fiado" : "0",
+"dia_fiado": "0",
+"senha": "password"
 }
 
 ### Verbo DELETE - excluir
-DELETE http://localhost:8000/cliente/2 HTTP/1.1
+DELETE http://localhost:8000/cliente/1 HTTP/1.1

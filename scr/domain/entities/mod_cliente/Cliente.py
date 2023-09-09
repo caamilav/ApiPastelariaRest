@@ -6,4 +6,5 @@ class Cliente(BaseModel):
     cpf: str
     telefone: str
     compra_fiado: int
+    dia_fiado: int 
     senha: str  
