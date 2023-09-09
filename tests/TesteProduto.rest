@@ -21,6 +21,8 @@ content-type: application/json
 
 {
 "nome" : "Tenis Vans Old School",
+"descricao": "desc editado",
+"foto": "01010111",
 "valor_unitario": 350
 }
 

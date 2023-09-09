@@ -12,6 +12,10 @@ def get_funcionario():
     try: 
         session = db.Session()
         dados = session.query(FuncionarioDB).all()
+        
+        if len(dados) == 0:
+           return {"Nenhum registro encontrado"}, 200
+       
         return dados, 200
     except Exception as ex:
         return {"erro": str(ex)}, 400
@@ -22,7 +26,7 @@ def get_funcionario():
 def get_funcionario(id: int):
     try:
         session = db.Session()
-        dados = session.query(FuncionarioDB).filter(FuncionarioDB.id_funcionario == id).all()
+        dados = session.query(FuncionarioDB).filter(FuncionarioDB.id_funcionario == id).one()
         return dados, 200
     except Exception as ex:
         return {"erro": str(ex)}, 400
@@ -65,7 +69,7 @@ def put_funcionario(id: int, f: Funcionario):
         session.rollback()
         return {"erro": str(ex)}, 400
     finally:
-        session.close
+        session.close()
         
 
 @router.delete("/funcionario/{id}", tags=["Funcionário"])
@@ -76,8 +80,8 @@ def delete_funcionario(id: int):
         session.delete(dados)
         session.commit()          
         return {"id": dados.id_funcionario}, 200      
-    except Exception as e:
+    except Exception as ex:
         session.rollback()
-        return {"erro": str(e)}, 400
+        return {"erro": str(ex)}, 400
     finally: 
         session.close()

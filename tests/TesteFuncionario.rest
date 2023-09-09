@@ -9,7 +9,7 @@ POST http://localhost:8000/funcionario/ HTTP/1.1
 content-type: application/json
 
 {
-"nome" : "Tio gabbs",
+"nome" : "Camila Teste",
 "cpf" : "01923874656",
 "telefone" : "49988234567",
 "senha" : "bolinhas",
@@ -22,7 +22,7 @@ PUT http://localhost:8000/funcionario/1 HTTP/1.1
 content-type: application/json
 
 {
-"nome" : "Bolinhas dos Testes",
+"nome" : "Camila editado",
 "cpf" : "12345678909",
 "telefone" : "49898989",
 "senha" : "abc",
