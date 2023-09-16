@@ -19,3 +19,6 @@ if __name__ == "__main__":
     uvicorn.run('apiPastelaria:app', host=HOST, port=int(PORT), reload=RELOAD)
     
     
+@app.get("/")
+def root():
+    return {"detail": "Api Pastelaria", "Swagger UI": "127.0.0.1:8000/docs", "RedDoc": "127.0.0.1:8000/redoc"}

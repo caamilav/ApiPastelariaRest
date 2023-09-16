@@ -1,11 +1,17 @@
 ### Verbo GET – listar todos
 GET http://localhost:8000/produto/ HTTP/1.1
+x-token: uN1Pl4CL4g3sToken
+x-key: uN1Pl4CL4g3sKey
 
 ### Verbo GET – listar um
 GET http://localhost:8000/produto/1 HTTP/1.1
+x-token: uN1Pl4CL4g3sToken
+x-key: uN1Pl4CL4g3sKey
 
 ### Verbo POST – adicionar
 POST http://localhost:8000/produto/ HTTP/1.1
+x-token: uN1Pl4CL4g3sToken
+x-key: uN1Pl4CL4g3sKey
 content-type: application/json
 
 {
@@ -17,6 +23,8 @@ content-type: application/json
 
 ### Verbo PUT – atualiza
 PUT http://localhost:8000/produto/1 HTTP/1.1
+x-token: uN1Pl4CL4g3sToken
+x-key: uN1Pl4CL4g3sKey
 content-type: application/json
 
 {
@@ -28,3 +36,5 @@ content-type: application/json
 
 ### Verbo DELETE - excluir
 DELETE http://localhost:8000/produto/1 HTTP/1.1
+x-token: uN1Pl4CL4g3sToken
+x-key: uN1Pl4CL4g3sKey
