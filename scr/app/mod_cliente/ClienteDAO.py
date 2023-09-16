@@ -1,9 +1,10 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from domain.entities.mod_cliente.Cliente import Cliente
 from infra.orm.mod_cliente.ClienteModel import ClienteDB
 import db
+import security
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(security.verify_token), Depends(security.verify_key)])
 
 # Criar os endpoints de Cliente: GET, POST, PUT, DELETE
 

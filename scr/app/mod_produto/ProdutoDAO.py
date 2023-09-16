@@ -1,10 +1,11 @@
-from fastapi  import APIRouter
+from fastapi  import APIRouter, Depends
 from domain.entities.mod_produto.Produto import Produto
 from infra.orm.mod_produto.ProdutoModel import ProdutoDB
 
 import db
+import security
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(security.verify_token), Depends(security.verify_key)])
 
 @router.get("/produto/", tags=["Produto"])
 def get_produto():
