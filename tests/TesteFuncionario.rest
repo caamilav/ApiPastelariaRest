@@ -15,8 +15,8 @@ x-key: uN1Pl4CL4g3sKey
 content-type: application/json
 
 {
-"nome" : "Camila Teste",
-"cpf" : "01923874656",
+"nome" : "Camila",
+"cpf" : "01923874657",
 "telefone" : "49988234567",
 "senha" : "bolinhas",
 "matricula" : "12345",
@@ -39,6 +39,6 @@ content-type: application/json
 }
 
 ### Verbo DELETE - excluir
-DELETE http://localhost:8000/funcionario/1 HTTP/1.1
+DELETE http://localhost:8000/funcionario/7 HTTP/1.1
 x-token: uN1Pl4CL4g3sToken
 x-key: uN1Pl4CL4g3sKey
