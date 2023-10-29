@@ -1,20 +1,17 @@
-from fastapi  import APIRouter
+from fastapi  import APIRouter, Depends
 from domain.entities.mod_produto.Produto import Produto
 from infra.orm.mod_produto.ProdutoModel import ProdutoDB
 
 import db
+import security
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(security.verify_token), Depends(security.verify_key)])
 
 @router.get("/produto/", tags=["Produto"])
 def get_produto():
     try:
         session = db.Session()
         dados = session.query(ProdutoDB).all()
-        
-        if len(dados) == 0:
-            return "Nenhum registro encontrado", 200
-        
         return dados, 200
     except Exception as ex:
         return {"erro": str(ex)}, 400

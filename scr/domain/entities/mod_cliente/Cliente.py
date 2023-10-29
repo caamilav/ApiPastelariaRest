@@ -1,3 +1,4 @@
+import datetime
 from pydantic import BaseModel
 
 class Cliente(BaseModel):
@@ -6,5 +7,5 @@ class Cliente(BaseModel):
     cpf: str
     telefone: str
     compra_fiado: int
-    dia_fiado: int 
+    dia_fiado: datetime.date = None
     senha: str  
