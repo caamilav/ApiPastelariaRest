@@ -1,4 +1,4 @@
-from sqlalchemy import CHAR, VARCHAR, Column, Integer
+from sqlalchemy import CHAR, VARCHAR, Column, Date, Integer
 import db
 
 class ClienteDB(db.Base):
@@ -8,7 +8,7 @@ class ClienteDB(db.Base):
     cpf = Column(CHAR(11), nullable=False)
     telefone = Column(CHAR(11), nullable=False)
     compra_fiado = Column(Integer, nullable=False)
-    dia_fiado = Column(Integer, nullable=False)
+    dia_fiado = Column(Date, nullable=True)
     senha = Column(VARCHAR(200), nullable=False)
     
     def __init__(self, id_cliente, nome, cpf, telefone,

@@ -12,10 +12,6 @@ def get_produto():
     try:
         session = db.Session()
         dados = session.query(ProdutoDB).all()
-        
-        if len(dados) == 0:
-            return "Nenhum registro encontrado", 200
-        
         return dados, 200
     except Exception as ex:
         return {"erro": str(ex)}, 400
