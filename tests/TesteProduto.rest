@@ -35,6 +35,6 @@ content-type: application/json
 }
 
 ### Verbo DELETE - excluir
-DELETE http://localhost:8000/produto/2 HTTP/1.1
+DELETE http://localhost:8000/produto/3 HTTP/1.1
 x-token: uN1Pl4CL4g3sToken
 x-key: uN1Pl4CL4g3sKey
