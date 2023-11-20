@@ -16,9 +16,9 @@ content-type: application/json
 
 {
 "nome" : "Camila",
-"cpf" : "01923874657",
+"cpf" : "01237964903",
 "telefone" : "49988234567",
-"senha" : "bolinhas",
+"senha" : "123",
 "matricula" : "12345",
 "grupo" : 1
 }

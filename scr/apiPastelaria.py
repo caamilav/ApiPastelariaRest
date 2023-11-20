@@ -3,6 +3,7 @@ from settings import HOST, PORT, RELOAD
 from app.mod_funcionario import FuncionarioDAO
 from app.mod_cliente import ClienteDAO
 from app.mod_produto import ProdutoDAO
+from app.mod_login import LoginDAO
 
 app = FastAPI()
 
@@ -10,6 +11,7 @@ app = FastAPI()
 app.include_router(FuncionarioDAO.router)
 app.include_router(ClienteDAO.router)
 app.include_router(ProdutoDAO.router)
+app.include_router(LoginDAO.router)
 
 import db
 db.createTable()

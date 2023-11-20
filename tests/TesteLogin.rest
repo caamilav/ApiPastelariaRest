@@ -1,0 +1,10 @@
+### Verbo POST
+POST http://localhost:8000/login/ HTTP/1.1
+x-token: uN1Pl4CL4g3sToken
+x-key: uN1Pl4CL4g3sKey
+content-type: application/json
+
+{
+"cpf": "01237964903",
+"senha": "1d6442ddcfd9db1ff81df77cbefcd5afcc8c7ca952ab3101ede17a84b866d3f3"
+}
